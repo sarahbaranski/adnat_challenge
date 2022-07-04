@@ -7,10 +7,13 @@ Rails.application.routes.draw do
     post "/sessions" => "sessions#create"
 
     get "/shifts" => "shifts#index"
+    post "/shifts" => "shifts#create"
+    patch "/shifts/:id" => "shifts#update"
+    delete "/shifts/:id" => "shifts#delete"
 
-    get "/organisation" => "organisations#index"
-    post "/organisation" => "organisations#create"
-    patch "/organisation/:id" => "organisations#update"
-    delete "/organisation/:id" => "organisations#delete"
+    get "/organisations" => "organisations#index"
+    post "/organisations" => "organisations#create"
+    patch "/organisations/:id" => "organisations#update"
+    delete "/organisations/:id" => "organisations#delete"
   end
 end

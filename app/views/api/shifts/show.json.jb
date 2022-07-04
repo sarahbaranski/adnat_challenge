@@ -1,0 +1,7 @@
+{
+  id: @shift.id,
+  user_id: @shift.user_id,
+  start: @shift.start,
+  finish: @shift.finish,
+  break_length: @shift.break_length,
+}
