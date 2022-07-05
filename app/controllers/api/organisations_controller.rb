@@ -10,7 +10,10 @@ class Api::OrganisationsController < ApplicationController
       name: params[:name],
       hourly_rate: params[:hourly_rate],
     )
-    @organisation.save
+    if @organisation.save
+      user.organisation_id = @organisation.id
+    end
+    user.save
     render "show.json.jb"
   end
 
