@@ -17,7 +17,7 @@ class Api::ShiftsController < ApplicationController
     if @shift.save
       render "show.json.jb"
     else
-      rend json: { message: "Shift did not save." }
+      render json: { message: "Shift did not save." }
     end
   end
 
