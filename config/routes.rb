@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # EXAMPLE HTML ROUTE
-
+  root "home#index"
+  get "/home", to: "home/index"
   # EXAMPLE JSON ROUTE WITH API NAMESPACE
   namespace :api do
     post "/users" => "users#create"
