@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         "HS256"
       )
       # render json: { jwt: jwt, email_address: user.email_address, user_id: user.id }, status: :created
-      redirect_to root_path, notice: "Logged in successfully"
+      redirect_to user_path, notice: "Logged in successfully"
     else
       # render json: {}, status: :unauthorized
       flash[:alert] = "Invalid email or password"

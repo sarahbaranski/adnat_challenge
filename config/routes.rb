@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login" => "sessions#create"
 
-  get "user", to: "users#create"
+  get "user", to: "users#new"
   post "user" => "users#create"
   # EXAMPLE JSON ROUTE WITH API NAMESPACE
   namespace :api do

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def new
+  end
+
   def create
     @user = User.new(
       name: params[:name],
@@ -7,7 +10,7 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation],
     )
     if @user.save
-      render json: { message: "User created succesfully" }, status: :created
+      redirect_to root_path status: 200
     else
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end

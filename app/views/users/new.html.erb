@@ -1,0 +1,22 @@
+<%= form_with model: @user, url: user_path do |form| %>
+  <div>
+   <p>Name</p>
+  <%= form.text_field :name %>
+  </div>
+   <div>
+   <p>Email</p>
+  <%= form.text_field :email_address %>
+  </div>
+  <div>
+  <p>Password</p>
+  <p>(6 character minimum)</p>
+  <%= form.password_field :password %>
+  </div>
+  <div>
+  <p>Password Confirmation</p>
+  <%= form.password_field :password_confirmation %> 
+  </div>
+  <div>
+  <%= form.submit%>
+  </div>
+<%end %>
