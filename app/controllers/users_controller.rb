@@ -28,6 +28,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    id = current_user&.id || params[:id]
+    @user = User.find_by(id: id)
+    @organisation = Organisation.all
+  end
+
   def edit
     @user = User.find_by(id: current_user.id)
     if @user.update_attribute(:organisation_id, params[:id])

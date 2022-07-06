@@ -13,10 +13,8 @@ class SessionsController < ApplicationController
         Rails.application.credentials.fetch(:secret_key_base),
         "HS256"
       )
-      # render json: { jwt: jwt, email_address: user.email_address, user_id: user.id }, status: :created
-      redirect_to user_path, notice: "Logged in successfully"
+      redirect_to users_path(user.id), notice: "Logged in successfully"
     else
-      # render json: {}, status: :unauthorized
       flash[:alert] = "Invalid email or password"
       redirect_to root_path
     end

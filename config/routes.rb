@@ -6,24 +6,19 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login" => "sessions#create"
 
-  get "user", to: "users#new"
-  post "user" => "users#create"
-  # EXAMPLE JSON ROUTE WITH API NAMESPACE
-  namespace :api do
-    post "/users" => "users#create"
-    patch "/users_update/:id" => "users#update"
-    patch "/users/:id" => "users#edit"
+  get "/users/:id", to: "users#show", as: "users"
+  get "/users/new", to: "users#new"
+  post "/users" => "users#create"
+  patch "/users_update/:id" => "users#update"
+  patch "/users/:id" => "users#edit"
 
-    post "/sessions" => "sessions#create"
+  get "/shifts" => "shifts#index"
+  post "/shifts" => "shifts#create"
+  patch "/shifts/:id" => "shifts#update"
+  delete "/shifts/:id" => "shifts#delete"
 
-    get "/shifts" => "shifts#index"
-    post "/shifts" => "shifts#create"
-    patch "/shifts/:id" => "shifts#update"
-    delete "/shifts/:id" => "shifts#delete"
-
-    get "/organisations" => "organisations#index"
-    post "/organisations" => "organisations#create"
-    patch "/organisations/:id" => "organisations#update"
-    delete "/organisations/:id" => "organisations#delete"
-  end
+  get "/organisations" => "organisations#index"
+  post "/organisations" => "organisations#create"
+  patch "/organisations/:id" => "organisations#update"
+  delete "/organisations/:id" => "organisations#delete"
 end
