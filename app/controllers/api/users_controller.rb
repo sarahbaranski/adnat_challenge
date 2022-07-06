@@ -15,6 +15,18 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: current_user.id)
+    @user.name = params[:name] || @user.name
+    @user.email_address = params[:email_address] || @user.email_address
+    @user.password = params[:password] || @user.password
+    if @user.save
+      render "show.json.jb"
+    else
+      render json: { errors: @user.errors.full_message }, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @user = User.find_by(id: current_user.id)
     if @user.update_attribute(:organisation_id, params[:id])
       render json: { message: "User added to organisation." }
     else
