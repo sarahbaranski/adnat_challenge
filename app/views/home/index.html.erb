@@ -1,0 +1,21 @@
+<h2>Log in</h2>
+<%= form_with url: sessions_path do |form| %>
+  <div>
+    <p>Email</p>
+    <%= form.text_field :email_address %>
+  </div>
+  <div>
+    <p>Password</p>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.submit "Log In" %>
+  </div>
+
+  <div>
+    <%= link_to "Sign Up", user_path %>
+  </div>
+  <div>
+    <a href="#">Reset Password</a>
+  </div>
+<%end %>
