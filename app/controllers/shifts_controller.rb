@@ -30,7 +30,7 @@ class ShiftsController < ApplicationController
       # TODO: redirect to users path with confirmation of shift updates.
       render "show.json.jb"
     else
-      flash[:alert] = "Shifts were not updated"
+      flash.now[:alert] = "Shifts were not updated"
     end
   end
 
@@ -49,16 +49,16 @@ class ShiftsController < ApplicationController
       # TODO: redirect to users path with confirmation of shift updates
       render "show.json.jb"
     else
-      flash[:alert] = "Shifts were not created."
+      flash.now[:alert] = "Shifts were not created."
     end
   end
 
   def delete
     shift = Shift.find_by(id: params[:id])
     if shift.destroy
-      flash[:notice] = "Shift was deleted."
+      flash.now[:notice] = "Shift was deleted."
     else
-      flash[:alert] = "Shift was not deleted."
+      flash.now[:alert] = "Shift was not deleted."
     end
   end
 end

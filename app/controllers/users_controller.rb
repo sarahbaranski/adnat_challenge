@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path status: 200
     else
-      flash[:alert] = "New user not created."
+      flash.now[:alert] = "New user not created."
     end
   end
 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       render "show.json.jb"
       # TODO: redirect to shifts path and confirm update
     else
-      flash[:alert] = "User not updated."
+      flash.now[:alert] = "User not updated."
     end
   end
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       # TODO: want this to be redirected to shifts
       redirect_to :users, notice: "User added to organisation."
     else
-      flash[:alert] = "User not added to organisation."
+      flash.now[:alert] = "User not added to organisation."
     end
   end
 end

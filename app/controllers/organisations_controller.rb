@@ -26,7 +26,7 @@ class OrganisationsController < ApplicationController
       # TODO: redirect to users path, with confirmation org saved
       render json: { message: "Organisation saved." }
     else
-      flash[:alert] = "Organisation not saved."
+      flash.now[:alert] = "Organisation not saved."
     end
   end
 
@@ -34,6 +34,6 @@ class OrganisationsController < ApplicationController
     user = User.find_by(id: current_user.id)
     @organisation = Organisation.find_by(id: params[:id])
     @organisation.destroy
-    flash[:notice] = "Organisation has been deleted." 
+    flash.now[:notice] = "Organisation has been deleted."
   end
 end

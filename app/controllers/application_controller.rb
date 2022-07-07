@@ -23,13 +23,13 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     unless current_user
-      flash[:alert] = "Unauthorized"
+      flash.now[:alert] = "Unauthorized"
     end
   end
 
   def authenticate_admin
     unless current_user.admin
-      flash[:alert] = "Unauthorized"
+      flash.now[:alert] = "Unauthorized"
     end
   end
 end
