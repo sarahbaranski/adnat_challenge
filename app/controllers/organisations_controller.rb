@@ -13,6 +13,7 @@ class OrganisationsController < ApplicationController
       @user.organisation_id = @organisation.id
     end
     user.save
+    # TODO: added frontend functionality to create an org, and redirect to users path once created with
     render "show.json.jb"
   end
 
@@ -22,9 +23,10 @@ class OrganisationsController < ApplicationController
     organisation.hourly_rate = params[:hourly_rate] || organisation.hourly_rate
 
     if organisation.save
+      # TODO: redirect to users path, with confirmation org saved
       render json: { message: "Organisation saved." }
     else
-      render json: { message: "Organisation did not save." }
+      flash[:alert] = "Organisation not saved."
     end
   end
 
@@ -32,6 +34,6 @@ class OrganisationsController < ApplicationController
     user = User.find_by(id: current_user.id)
     @organisation = Organisation.find_by(id: params[:id])
     @organisation.destroy
-    render json: { message: "Organisation has been deleted." }
+    flash[:notice] = "Organisation has been deleted." 
   end
 end

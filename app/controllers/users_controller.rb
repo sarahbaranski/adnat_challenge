@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path status: 200
     else
-      render json: { errors: user.errors.full_messages }, status: :bad_request
+      flash[:alert] = "New user not created."
     end
   end
 
@@ -23,8 +23,9 @@ class UsersController < ApplicationController
     @user.password = params[:password] || @user.password
     if @user.save
       render "show.json.jb"
+      # TODO: redirect to shifts path and confirm update
     else
-      render json: { errors: @user.errors.full_message }, status: :unprocessable_entity
+      flash[:alert] = "User not updated."
     end
   end
 
@@ -38,10 +39,10 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by(id: params[:id])
     if @user.update_attribute(:organisation_id, params[:organisation_id])
-      redirect_to :shifts
       # TODO: want this to be redirected to shifts
+      redirect_to :users, notice: "User added to organisation."
     else
-      render json: { message: "User not added to organisation." }
+      flash[:alert] = "User not added to organisation."
     end
   end
 end

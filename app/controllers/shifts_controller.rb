@@ -27,9 +27,10 @@ class ShiftsController < ApplicationController
     @shift.finish = finish_time || @shift.finish
     @shift.break_length = params[:break_length] || @shift.break_length
     if @shift.save
+      # TODO: redirect to users path with confirmation of shift updates.
       render "show.json.jb"
     else
-      render json: { message: "Shift did not save." }
+      flash[:alert] = "Shifts were not updated"
     end
   end
 
@@ -45,18 +46,19 @@ class ShiftsController < ApplicationController
       break_length: params[:break_length],
     )
     if @shift.save
+      # TODO: redirect to users path with confirmation of shift updates
       render "show.json.jb"
     else
-      render json: { message: "Shift was not created." }
+      flash[:alert] = "Shifts were not created."
     end
   end
 
   def delete
     shift = Shift.find_by(id: params[:id])
     if shift.destroy
-      render json: { message: "Shift destroyed." }
+      flash[:notice] = "Shift was deleted."
     else
-      render json: { message: "Shift was not deleted." }
+      flash[:alert] = "Shift was not deleted."
     end
   end
 end

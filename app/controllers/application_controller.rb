@@ -23,13 +23,13 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     unless current_user
-      render json: {}, status: :unauthorized
+      flash[:alert] = "Unauthorized"
     end
   end
 
   def authenticate_admin
     unless current_user.admin
-      render json: {}, status: :unauthorized
+      flash[:alert] = "Unauthorized"
     end
   end
 end
