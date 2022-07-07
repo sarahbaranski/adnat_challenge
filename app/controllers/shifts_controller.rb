@@ -1,7 +1,19 @@
 class ShiftsController < ApplicationController
   def index
     @shifts = Shift.all
-    render "index.json.jb"
+    # render "index.json.jb"
+    @user_all_shifts = []
+    @shift = Shift.where(user_id: params[:user_id])
+    @user = User.find_by(id: params[:user_id])
+    # @user_all = User.where(organisations_id: @user.organisation.id)
+    # @org = @user.organisation
+    # @hourly_rate = @user.organisation.hourly_rate
+
+    # @user_all.each do |user|
+    #   if user != @user
+    #     @user_all_shifts << Shift.find_by(user_id: user.id)
+    #   end
+    # end
   end
 
   def update

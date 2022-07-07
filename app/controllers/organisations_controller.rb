@@ -3,13 +3,14 @@ class OrganisationsController < ApplicationController
   end
 
   def create
-    user = User.find_by(id: current_user.id)
+    @user = User.find_by(id: params[:id])
+    # user = User.find_by(id: current_user.id)
     @organisation = Organisation.new(
       name: params[:name],
       hourly_rate: params[:hourly_rate],
     )
     if @organisation.save
-      user.organisation_id = @organisation.id
+      @user.organisation_id = @organisation.id
     end
     user.save
     render "show.json.jb"

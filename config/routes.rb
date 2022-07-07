@@ -12,13 +12,13 @@ Rails.application.routes.draw do
   patch "/users_update/:id" => "users#update"
   patch "/organisations/:organisation_id/users/:id", to: "users#edit", as: "join_org"
 
-  get "/shifts" => "shifts#index"
-  post "/shifts" => "shifts#create"
-  patch "/shifts/:id" => "shifts#update"
-  delete "/shifts/:id" => "shifts#delete"
-
   get "/organisations", to: "organisations#index"
   post "/organisations" => "organisations#create"
   patch "/organisations/:id" => "organisations#update"
   delete "/organisations/:id" => "organisations#delete"
+
+  get "/shifts", to: "shifts#index", as: "shifts"
+  post "/shifts" => "shifts#create"
+  patch "/shifts/:id" => "shifts#update"
+  delete "/shifts/:id" => "shifts#delete"
 end

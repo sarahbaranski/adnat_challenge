@@ -34,10 +34,12 @@ class UsersController < ApplicationController
     @organisation = Organisation.all
   end
 
+  # Add organisation to user
   def edit
     @user = User.find_by(id: params[:id])
     if @user.update_attribute(:organisation_id, params[:organisation_id])
-      redirect_to :users
+      redirect_to :shifts
+      # TODO: want this to be redirected to shifts
     else
       render json: { message: "User not added to organisation." }
     end
