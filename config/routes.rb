@@ -10,14 +10,14 @@ Rails.application.routes.draw do
   get "/users/new", to: "users#new"
   post "/users" => "users#create"
   patch "/users_update/:id" => "users#update"
-  patch "/users/:id" => "users#edit"
+  patch "/organisations/:organisation_id/users/:id", to: "users#edit", as: "join_org"
 
   get "/shifts" => "shifts#index"
   post "/shifts" => "shifts#create"
   patch "/shifts/:id" => "shifts#update"
   delete "/shifts/:id" => "shifts#delete"
 
-  get "/organisations" => "organisations#index"
+  get "/organisations", to: "organisations#index"
   post "/organisations" => "organisations#create"
   patch "/organisations/:id" => "organisations#update"
   delete "/organisations/:id" => "organisations#delete"

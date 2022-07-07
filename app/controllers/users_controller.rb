@@ -35,9 +35,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(id: current_user.id)
-    if @user.update_attribute(:organisation_id, params[:id])
-      render json: { message: "User added to organisation." }
+    @user = User.find_by(id: params[:id])
+    if @user.update_attribute(:organisation_id, params[:organisation_id])
+      redirect_to :users
     else
       render json: { message: "User not added to organisation." }
     end

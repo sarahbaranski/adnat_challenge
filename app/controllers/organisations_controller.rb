@@ -1,7 +1,5 @@
 class OrganisationsController < ApplicationController
   def index
-    @organisations = Organisation.all
-    render "index.json.jb"
   end
 
   def create

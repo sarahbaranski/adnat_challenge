@@ -1,19 +1,20 @@
 <% if @user %>
   <div>
-    <p>You are logged in as:</p><%= @user.name%>
+    <p>You are logged in as: <%= @user.name%></p>
   </div>
-  <br>
   <h2> Organisations </h2>
   <% @organisation.each do |org| %>
   <div>
    <ul>
      <li>
-       <%= org.name %> <%= link_to "Edit", %><%= link_to "Join"%>
+       <%= org.name %> <%= link_to "Edit", organisations_path %>
+    <%= form_with url: join_org_path(org.id, @user.id), method: "patch" do |form| %>
+    <%= form.submit "Join" %>
      </li>
    </ul>
   </div>
+    <% end %> 
   <% end %> 
-  <br>
   <h2> Create an Organisation </h2>
   <%= form_with url: organisations_path do |form| %>
     <div>
