@@ -49,8 +49,8 @@ class UsersController < ApplicationController
 
   # User leaves organisation and shifts are dropped
   def leave_org
-    user = User.find_by(id: current_user.id)
-    user.org_id = nil
+    user = User.find_by(id: params[:id])
+    user.organisation_id = nil
     user.shifts.destroy_all
     user.save
     redirect_to users_path

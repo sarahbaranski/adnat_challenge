@@ -3,7 +3,9 @@
     <p>You are logged in as: <%= @user.name%></p>
   </div>
   <div>
-  <p>Your Organisation: <%= @user.organisation.name%></p>
+  <%= form_with url: leave_org_path(@user.id), method: "patch" do |form| %>
+    <%= form.submit "Leave Current Organisation" %>
+    <% end %>
   </div>
   <h2> Organisations </h2>
   <% @organisation.each do |org| %>
