@@ -13,7 +13,6 @@ class OrganisationsController < ApplicationController
     end
     user.save
     # TODO: added frontend functionality to create an org, and redirect to users path once created with
-    render "show.json.jb"
   end
 
   def show
@@ -30,7 +29,6 @@ class OrganisationsController < ApplicationController
 
     if organisation.save
       # TODO: redirect to users path, with confirmation org saved
-      render json: { message: "Organisation saved." }
     else
       flash.now[:alert] = "Organisation not saved."
     end

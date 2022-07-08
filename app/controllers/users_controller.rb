@@ -22,7 +22,6 @@ class UsersController < ApplicationController
     @user.email_address = params[:email_address] || @user.email_address
     @user.password = params[:password] || @user.password
     if @user.save
-      render "show.json.jb"
       # TODO: redirect to shifts path and confirm update
     else
       flash.now[:alert] = "User not updated."

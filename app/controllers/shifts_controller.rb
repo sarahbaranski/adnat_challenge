@@ -34,7 +34,6 @@ class ShiftsController < ApplicationController
     )
     if @shift.save
       # TODO: redirect to users path with confirmation of shift updates
-      render "show.json.jb"
     else
       flash.now[:alert] = "Shifts were not created."
     end
