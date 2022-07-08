@@ -1,5 +1,6 @@
-<h1>Your Shift:</h1>
-<h2><%= @organisation.name %>
+<h1>Shifts: <%= @organisation.name %> </h1>
+
+<div>
 <table class="table table-hover">
   <tr>
     <th>Employee name</th>
@@ -10,6 +11,7 @@
     <th>Hours Worked</th>
     <th>Shift Cost</th>
   </tr>
+  </div>
   <% @shifts.each do |shift|%>
    <tr>
     <td><%= shift.user.name%></td>
@@ -23,6 +25,8 @@
     <%= button_to "Edit", update_shift_path(:id => shift.id), method: :patch%>
     </td>
     </tr>
+  <% end %>
+  <%@shifts.each do |shift|%>
      <tr>
     <%=form_with url: shift_create_path do |form|%>
       <td><%= shift.user.name%></td>
@@ -33,6 +37,5 @@
       <td>   <%= form.submit "Create Shift"%></td>
     <% end %>
   </tr>
-  <% end %>
-
+   <% end %>
 </table>

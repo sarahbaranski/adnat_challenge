@@ -1,7 +1,6 @@
 class ShiftsController < ApplicationController
   def index
     @shifts = Shift.all
-    render "index.json.jb"
   end
 
   def update
@@ -22,10 +21,11 @@ class ShiftsController < ApplicationController
   end
 
   def create
-    user = User.find_by(id: current_user.id)
+    # TODO: figure out why current_user.id won't work
+    user = User.find_by(id: params[:id])
     start_time = DateTime.parse("#{params[:date]} #{params[:start]}")
     finish_time = DateTime.parse("#{params[:date]} #{params[:finish]}")
-
+    # TODO: figure out, why current_user.id won't work
     @shift = Shift.new(
       user_id: current_user.id,
       start: start_time,

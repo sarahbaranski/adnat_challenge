@@ -1,6 +1,0 @@
-{
-  id: @user.id,
-  name: @user.name,
-  email_address: @user.email_address,
-  password: @user.password,
-}

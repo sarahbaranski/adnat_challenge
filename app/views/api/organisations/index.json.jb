@@ -1,7 +1,0 @@
-@organisations.map do |organisation|
-  {
-    id: organisation.id,
-    name: organisation.name,
-    hourly_rate: organisation.hourly_rate,
-  }
-end
