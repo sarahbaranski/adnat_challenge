@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   patch "/organisations/:id" => "organisations#update"
   delete "/organisations/:id" => "organisations#delete"
 
+  patch "/shifts/:id", to: "shifts#update", as: "update_shift"
   get "/shifts", to: "shifts#index", as: "shifts"
-  post "/shifts" => "shifts#create"
-  patch "/shifts/:id" => "shifts#update"
-  delete "/shifts/:id" => "shifts#delete"
+  post "/shifts", to: "shifts#create", as: "shift_create"
+  delete "/shifts/:id", to: "shifts#delete", as: "shift_delete"
 end

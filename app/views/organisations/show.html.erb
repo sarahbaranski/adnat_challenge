@@ -1,5 +1,5 @@
 <h1>Your Shift:</h1>
-<h2><%= @organisation.name%>
+<h2><%= @organisation.name %>
 <table class="table table-hover">
   <tr>
     <th>Employee name</th>
@@ -19,7 +19,20 @@
     <td><%= shift.break_length%></td>
     <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60%></td>
     <td>$<%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60 * @organisation.hourly_rate%></td>
-    <%# <td><%= link_to "Edit", edit_view_shift_path(:id => shift.id)%></td> %>
+    <td>
+    <%= button_to "Edit", update_shift_path(:id => shift.id), method: :patch%>
+    </td>
     </tr>
+     <tr>
+    <%=form_with url: shift_create_path do |form|%>
+      <td><%= shift.user.name%></td>
+      <td> <%= form.date_field :date %></td>
+      <td> <%= form.time_field :start %></td>
+      <td> <%= form.time_field :finish %></td>
+      <td> <%= form.number_field :break_length %></td>
+      <td>   <%= form.submit "Create Shift"%></td>
+    <% end %>
+  </tr>
   <% end %>
+
 </table>

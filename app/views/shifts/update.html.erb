@@ -1,0 +1,22 @@
+<h1>Edit Shift</h1>
+
+<%=form_tag(update_shift_path(:id => params[:id]), :method => "patch") do |form|%>
+  <div>
+    <p>Date:</p>
+    <%= date_field_tag(:date) %>
+  </div>
+  <div>
+    <p>Start time:</p>
+    <%= time_field_tag(:start) %>
+  </div>
+  <div>
+    <p>Finish time:</p>
+    <%= time_field_tag(:finish) %>
+  </div>
+  <div>
+    <p>Break length</p>
+    <%= number_field_tag(:break_length, step: 0.5)%>
+  </div>
+  <%= submit_tag("Update")%>
+<% end %>
+<%= button_to "Delete", shift_delete_path(:id => params[:id]), method: :delete%>

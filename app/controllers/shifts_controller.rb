@@ -15,8 +15,7 @@ class ShiftsController < ApplicationController
     @shift.finish = finish_time || @shift.finish
     @shift.break_length = params[:break_length] || @shift.break_length
     if @shift.save
-      # TODO: redirect to users path with confirmation of shift updates.
-      render "show.json.jb"
+      flash.now[:notice] = "Shifts were updated"
     else
       flash.now[:alert] = "Shifts were not updated"
     end
