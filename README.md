@@ -23,3 +23,7 @@
 - A `link_to` only works for Get requests, so I used `button_to` as a work around.
 
 - `flat_map` will loop through an array of arrays and put all the data into a single array. This was particularly helpful when trying to get all the users shifts from an organisation.
+
+- It took me a second to become familiar with the routes helper methods, and how everything from the views/controllers and routes connected. But once those helper methods made sense, I really latched on to them.
+
+- I didn't do any styling or refactoring of code here, something I would definitely choose to do with more time. However, I tried to build out most of the basic functions just to get it working, which is typically the approach I take when coding: get it to work, then refactor it.
