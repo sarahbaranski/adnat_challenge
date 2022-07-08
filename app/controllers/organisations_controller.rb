@@ -17,6 +17,13 @@ class OrganisationsController < ApplicationController
     render "show.json.jb"
   end
 
+  def show
+    @organisation = Organisation.find_by(id: params[:id])
+    @shifts = @organisation.users.flat_map do |user|
+      user.shifts
+    end
+  end
+
   def update
     organisation = Organisation.find_by(id: params[:id])
     organisation.name = params[:name] || organisation.name

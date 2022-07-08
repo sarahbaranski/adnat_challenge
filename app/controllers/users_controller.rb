@@ -35,12 +35,13 @@ class UsersController < ApplicationController
     @organisation = Organisation.all
   end
 
-  # Add organisation to user
+  # Add user to organisation
   def edit
     @user = User.find_by(id: params[:id])
-    if @user.update_attribute(:organisation_id, params[:organisation_id])
+    org_id = params[:organisation_id]
+    if @user.update_attribute(:organisation_id, org_id)
       # TODO: want this to be redirected to shifts
-      redirect_to :users, notice: "User added to organisation."
+      redirect_to orgs_path(org_id), notice: "User added to organisation."
     else
       flash.now[:alert] = "User not added to organisation."
     end

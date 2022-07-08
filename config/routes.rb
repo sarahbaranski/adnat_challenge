@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   patch "/organisations/:organisation_id/users/:id", to: "users#edit", as: "join_org"
 
   get "/organisations", to: "organisations#index"
+  get "/organisations/:id", to: "organisations#show", as: "orgs"
   post "/organisations" => "organisations#create"
   patch "/organisations/:id" => "organisations#update"
   delete "/organisations/:id" => "organisations#delete"
