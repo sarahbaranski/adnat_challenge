@@ -4,7 +4,6 @@ class OrganisationsController < ApplicationController
 
   def create
     @user = User.find_by(id: params[:id])
-    # user = User.find_by(id: current_user.id)
     @organisation = Organisation.new(
       name: params[:name],
       hourly_rate: params[:hourly_rate],

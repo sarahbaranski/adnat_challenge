@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/users/new", to: "users#new"
   post "/users" => "users#create"
   patch "/users_update/:id" => "users#update"
+  patch "users/:user_id/organisations/:id", to: "users#leave_org", as: "leave_org"
   patch "/organisations/:organisation_id/users/:id", to: "users#edit", as: "join_org"
 
   get "/organisations", to: "organisations#index"

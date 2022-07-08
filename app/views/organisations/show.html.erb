@@ -19,7 +19,7 @@
     <td><%= shift.break_length%></td>
     <td><%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60%></td>
     <td>$<%= (((shift.finish - shift.start) / 60) - shift.break_length) / 60 * @organisation.hourly_rate%></td>
-    <td><%= link_to "Edit", edit_view_shift_path(:id => shift.id)%></td>
+    <%# <td><%= link_to "Edit", edit_view_shift_path(:id => shift.id)%></td> %>
     </tr>
   <% end %>
 </table>

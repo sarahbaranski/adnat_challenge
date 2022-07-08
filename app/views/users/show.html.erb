@@ -2,6 +2,9 @@
   <div>
     <p>You are logged in as: <%= @user.name%></p>
   </div>
+  <div>
+  <p>Your Organisation: <%= @user.organisation.name%></p>
+  </div>
   <h2> Organisations </h2>
   <% @organisation.each do |org| %>
   <div>
