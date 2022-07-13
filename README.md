@@ -10,6 +10,20 @@
 
 - Postgres 13.7
 
+### **Instructions:**
+
+Clone this repo
+
+Create a database `rails db:create`
+
+Seed the database `rails db:seed`
+
+Run `rails credentials:edit` to generate the secret key needed for sessions
+
+Start Rails server
+
+Go to `localhost:3000`
+
 ### **What I learned**:
 
 - First and foremost that Rails has frontend capabilities. I didn't know that before going into this challenge. I definitely spent quite a bit of time learning. For instance, how the helper methods for redirecting to routes work, how the views and routes connect, and the naming conventions that bring it all together.
