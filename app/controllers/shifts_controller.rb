@@ -5,9 +5,11 @@ class ShiftsController < ApplicationController
 
   def update
     @shift = Shift.find_by(id: params[:id])
-    if params[:date] && params[:start] == true
+
+    if params[:date] && params[:start]
       start_time = DateTime.parse("#{params[:date]} #{params[:start]}")
-    elsif params[:date] && params[:finish] == true
+    end
+    if params[:date] && params[:finish]
       finish_time = DateTime.parse("#{params[:date]} #{params[:finish]}")
     end
     @shift.start = start_time || @shift.start
